@@ -1,4 +1,15 @@
+const functions = require('firebase-functions');
 const express = require('express');
+const app = express();
+
+// Express.js uygulamanızı burada konfigüre edin
+
+// Yalnızca üstteki `app`'i kullanmaya devam edin, alttaki kısmı kaldırın.
+
+exports.api = functions.https.onRequest(app);
+
+// Daha fazla kod...
+
 
 
 
@@ -15,7 +26,7 @@ const authRoutes = require('./api/loginJwt');
 const cors = require('cors');
 
 
-const app = express();
+
 const PORT = 8000;
 
 
