@@ -2,15 +2,15 @@ const express = require('express');
 
 
 
-const icecekler = require('./icecekler');
-const pizza = require('./pizza');
+const icecekler = require('./api/icecekler');
+const pizza = require('./api/pizza');
 // const signup = require('./signup');
-const admin = require('./admin');
-const kampanyalar = require('./kampanyalar');
-const tatli = require('./tatli');
-const wings = require('./wings');
-const payment = require('./payment');
-const authRoutes = require('./loginJwt');
+const admin = require('./api/admin');
+const kampanyalar = require('./api/kampanyalar');
+const tatli = require('./api/tatli');
+const wings = require('./api/wings');
+const payment = require('./api/payment');
+const authRoutes = require('./api/loginJwt');
 
 const cors = require('cors');
 
