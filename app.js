@@ -30,7 +30,7 @@ const cors = require('cors');
 
 
 
-const PORT = 8001;
+const PORT = 8002;
 
 
 
@@ -40,15 +40,15 @@ app.use(cors({
     credentials: true,
   }));
 
-app.use('/icecekler', icecekler);
-app.use('/pizza', pizza);
+app.use('/api/icecekler', icecekler);
+app.use('/api/pizza', pizza);
 // app.use('/signup', signup);
-app.use('/admin', admin);
-app.use('/kampanyalar', kampanyalar);
-app.use('/tatlilar', tatli);
-app.use('/loginjwt', authRoutes);
-app.use('/wings', wings);
-app.use("/payment", payment);
+app.use('/api/admin', admin);
+app.use('/api/kampanyalar', kampanyalar);
+app.use('/api/tatlilar', tatli);
+app.use('/api/loginjwt', authRoutes);
+app.use('/api/wings', wings);
+app.use("/api/payment", payment);
 
 
 
