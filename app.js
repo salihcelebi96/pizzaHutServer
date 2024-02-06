@@ -2,13 +2,16 @@ const functions = require('firebase-functions');
 const express = require('express');
 const app = express();
 
-// Express.js uygulamanızı burada konfigüre edin
 
-// Yalnızca üstteki `app`'i kullanmaya devam edin, alttaki kısmı kaldırın.
 
-exports.api = functions.https.onRequest(app);
+exports.myApi = functions.https.onRequest((request, response) => {
+  response.json({ message: 'Merhaba, bu ücretsiz bir API!' });
+});
 
-// Daha fazla kod...
+
+
+
+
 
 
 
@@ -27,7 +30,7 @@ const cors = require('cors');
 
 
 
-const PORT = 8000;
+const PORT = 8001;
 
 
 
@@ -52,3 +55,4 @@ app.use("/payment", payment);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+exports.api = functions.https.onRequest(app);
