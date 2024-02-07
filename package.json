@@ -6,9 +6,9 @@
  
   "scripts": {
     "start": "nodemon app.js",
-    "build": "js",
-    "lint": "eslint . --fix",
-    "deploy": "firebase deploy --only functions"
+    "build": ""
+    
+    
   },
   "keywords": [],
   "author": "",
