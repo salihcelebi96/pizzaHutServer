@@ -7,7 +7,7 @@
     "node": "16.17.0"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "vercel-build": "echo hello"
     
   },
