@@ -24,7 +24,7 @@ const kampanyalar = require('./api/kampanyalar');
 const tatli = require('./api/tatli');
 const wings = require('./api/wings');
 const payment = require('./api/payment');
-const authRoutes = require('./api/loginjwt');
+const authRoutes = require('./api/loginJwt');
 
 const cors = require('cors');
 
