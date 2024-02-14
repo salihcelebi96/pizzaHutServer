@@ -4,7 +4,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 
 const app = express();
-const router = express.Router(); 
+const router = express.Router();
 
 
 
@@ -58,9 +58,11 @@ router.post('/', async (req, res) => {
     const savedTatlı = await newTatlı.save();
     res.status(201).json(savedTatlı);
   } catch (error) {
+    console.error('Post işlemi sırasında bir hata oluştu:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-  
-  module.exports = router;
+
+
+module.exports = router;

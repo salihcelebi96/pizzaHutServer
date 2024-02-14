@@ -7,7 +7,7 @@
     "node": "16.17.0"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "forever app.js",
     "vercel-build": "echo hello"
     
   },
