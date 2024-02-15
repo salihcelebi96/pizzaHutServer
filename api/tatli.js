@@ -50,12 +50,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { tür, fiyat, url } = req.body;
-    const newTatlı = new Tatlilar({
-      tür,
-      fiyat,
-      url,
-    });
-    const savedTatlı = await newTatlı.save();
+    const savedTatlı = await Tatlilar.create({ tür, fiyat, url });
     res.status(201).json(savedTatlı);
   } catch (error) {
     console.error('Post işlemi sırasında bir hata oluştu:', error);
