@@ -34,11 +34,7 @@ const PORT = 8004;
 
 
 
-app.use(cors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  }));
+app.use(cors());
 
 app.use('/api/icecekler', icecekler);
 app.use('/api/pizza', pizza);
