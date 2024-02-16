@@ -9,6 +9,7 @@ const router = express.Router();
 
 app.use(express.json());
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 
 
 
@@ -54,7 +55,8 @@ router.post('/', async (req, res) => {
       fiyat,
       url,
     });
-    const savedTatlı = await newTatlı.save();
+    const savedTatlı = await newTatlı.save(); // MongoDB'ye kaydedin
+    tatlilar.push(savedTatlı); // Yerel dizinize de ekleyin
     res.status(201).json(savedTatlı);
   } catch (error) {
     console.error('Post işlemi sırasında bir hata oluştu:', error);
@@ -62,6 +64,7 @@ router.post('/', async (req, res) => {
     console.log(req.body);
   }
 });
+
 
 
 
