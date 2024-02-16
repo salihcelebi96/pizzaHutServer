@@ -7,7 +7,7 @@ const app = express();
 const router = express.Router();
 
 
-
+app.use(express.json());
 app.use(cors({
   origin: '*',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -36,7 +36,7 @@ const tatliSchema = new mongoose.Schema({
   },
 });
 const Tatlilar = mongoose.model('tatli', tatliSchema);
-app.use(express.json());
+
 
 
 router.get('/', async (req, res) => {
@@ -45,6 +45,7 @@ router.get('/', async (req, res) => {
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
+    
   }
 });
 router.post('/', async (req, res) => {
@@ -60,6 +61,7 @@ router.post('/', async (req, res) => {
   } catch (error) {
     console.error('Post işlemi sırasında bir hata oluştu:', error);
     res.status(500).json({ error: 'Internal Server Error' });
+    console.log(req.body);
   }
 });
 
