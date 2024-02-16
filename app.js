@@ -4,14 +4,6 @@ const app = express();
 
 
 
-exports.myApi = functions.https.onRequest((request, response) => {
-  response.json({ message: 'Merhaba, bu ücretsiz bir API!' });
-});
-
-
-
-
-
 
 
 
