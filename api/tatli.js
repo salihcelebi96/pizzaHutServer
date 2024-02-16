@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const app = express();
 const router = express.Router();
 
-let tatlilar = [];
+
 
 app.use(express.json());
 app.use(cors());
@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
       url,
     });
     const savedTatlı = await newTatlı.save(); // MongoDB'ye kaydedin
-    tatlilar.push(savedTatlı); // Yerel dizinize de ekleyin
+    console.log(savedTatlı)
     res.status(201).json(savedTatlı);
   } catch (error) {
     console.error('Post işlemi sırasında bir hata oluştu:', error);
