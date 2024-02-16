@@ -8,11 +8,7 @@ const router = express.Router();
 
 
 app.use(express.json());
-app.use(cors({
-  origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-}));
+app.use(cors());
 
 
 
@@ -48,6 +44,8 @@ router.get('/', async (req, res) => {
     
   }
 });
+
+
 router.post('/', async (req, res) => {
   try {
     const { tür, fiyat, url } = req.body;
