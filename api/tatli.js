@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const app = express();
 const router = express.Router();
 
+let tatlilar = [];
 
 app.use(express.json());
 app.use(cors());
