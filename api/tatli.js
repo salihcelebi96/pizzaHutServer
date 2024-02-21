@@ -56,7 +56,7 @@ router.post('/', async (req, res) => {
       fiyat,
       url,
     });
-    const savedTatlı = await newTatlı.save(); // MongoDB'ye kaydedin
+    const savedTatlı = await newTatlı.save(); 
     console.log(savedTatlı)
     res.status(201).json(savedTatlı);
   } catch (error) {

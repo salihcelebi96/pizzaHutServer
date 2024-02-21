@@ -38,7 +38,7 @@ router.use((req, res, next) => {
   next();
 });
 
-// Signup endpoint
+
 router.post('/signup', async (req, res) => {
   try {
     const { name, email, phoneNumber, password, isChecked1, isChecked2, isChecked3 } = req.body;
@@ -72,7 +72,7 @@ router.get('/users', async (req, res) => {
 
 
 
-// Login endpoint with JWT
+
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -90,7 +90,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Protected endpoint
+
 router.get('/protected', (req, res) => {
   try {
     const token = req.headers.authorization.split(' ')[1];
