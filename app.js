@@ -26,7 +26,7 @@ const PORT = 8004;
 
 
 
-
+app.use(cors());
 
 app.use('/api/icecekler', icecekler);
 app.use('/api/pizza', pizza);
