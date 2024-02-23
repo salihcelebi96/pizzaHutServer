@@ -1,27 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
-const fileUpload = require('express-fileupload');
+
+
 const dotenv = require('dotenv');
 const router = express.Router(); 
-const app = express();
 
 
-app.use(cors({
-  origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-}));
 
-app.use(fileUpload());
-app.use(express.json());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', '*');
-  res.header('Access-Control-Allow-Methods', '*');
-  next();
-});
+
+
+
+
+
 
 dotenv.config();
 
@@ -64,9 +55,10 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  console.log(req.body);
   const { url, tür, fiyatlar } = req.body;
   try {
-    // Create a new pizza document directly using create
+    
     const savedPizza = await Pizza.create({
       tür,
       fiyatlar,

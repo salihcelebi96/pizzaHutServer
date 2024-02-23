@@ -1,14 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors'); 
+
 const dotenv = require('dotenv');
 const router = express.Router(); 
-const app = express();
+
 
 dotenv.config();
 
-// MongoDB bağlantısı
+
 mongoose.connect(process.env.MONGODB_URI);
 const db = mongoose.connection;
 
@@ -17,7 +16,7 @@ db.once('open', function () {
   console.log('MongoDB connected successfully');
 });
 
-// Kullanıcı modeli tanımı
+
 const userSchema = new mongoose.Schema({
   name: String,
   email: String,
@@ -30,16 +29,12 @@ const userSchema = new mongoose.Schema({
 
 const UserModel = mongoose.model('User', userSchema);
 
-// Middleware
-app.use(cors({
-  origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-}));
 
-app.use(express.json());
 
-// Routes
+
+
+
+
 router.post('/', async (req, res) => {
   try {
     const { name, email, phoneNumber, password, isChecked1, isChecked2, isChecked3 } = req.body;

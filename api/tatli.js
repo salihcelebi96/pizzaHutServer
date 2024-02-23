@@ -1,24 +1,22 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+
 const dotenv = require('dotenv');
 
-const app = express();
+
 const router = express.Router();
 
 
 
-app.use(express.json());
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+
 
 
 
 dotenv.config();
-// MongoDB bağlantısı
+
 mongoose.connect(process.env.MONGODB_URI);
 
-// MongoDB şeması ve modeli
+
 const tatliSchema = new mongoose.Schema({
   tür: {
     type: String,

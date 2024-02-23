@@ -1,25 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+
 const dotenv = require('dotenv');
 const router = express.Router();  
-const app = express();
 
 
 
 
-app.use(cors({
-  origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-}));
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', '*');
-  res.header('Access-Control-Allow-Methods', '*');
-  next();
-});
+
+
+
 
 dotenv.config();
 mongoose.connect(process.env.MONGODB_URI);
@@ -48,8 +39,7 @@ const kampanyaSchema = new mongoose.Schema({
 const Kampanyalar = mongoose.model('Kampanyalar', kampanyaSchema);
 
 
-app.use(cors());
-app.use(express.json());
+
 
 
 router.get('/', async (req, res) => {

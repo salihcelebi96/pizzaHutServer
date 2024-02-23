@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
-const app = express();
+
 
 const dotenv = require('dotenv');
 const router = express.Router();
@@ -9,11 +8,7 @@ const router = express.Router();
 
 
 
-app.use(cors({
-  origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-}));
+
 
 dotenv.config();
 
@@ -36,7 +31,7 @@ const admins = mongoose.model('admin',adminSchema);
 
 
 
-app.use(express.json());
+
 
 
 router.get('/', async (req, res) => { 
