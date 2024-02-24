@@ -38,7 +38,7 @@ const pizzaSchema = new mongoose.Schema({
     },
   },
   url: {
-    type: String, // Resmi URL olarak sakla
+    type: String, 
     required: true,
   },
 });
