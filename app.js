@@ -19,8 +19,9 @@ const tatli = require('./api/tatli');
 const wings = require('./api/wings');
 const payment = require('./api/payment');
 const authRoutes = require('./api/loginJwt');
+const address = require('./api/address');
 
-// Define routes
+
 const PORT = 8004;
 
 app.use('/api/pizza', pizza);
@@ -31,6 +32,7 @@ app.use('/api/tatlilar', tatli);
 app.use('/api/loginjwt', authRoutes);
 app.use('/api/wings', wings);
 app.use("/api/payment", payment);
+app.use("/api/address", address);
 
 // Start the server
 app.listen(PORT, () => {
