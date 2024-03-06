@@ -1,5 +1,5 @@
 const express = require('express');
-const router = require('express').Router();
+const router = express.Router();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
@@ -46,7 +46,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const { addressName, neighbourHood, addressDetail, district, city,user } = req.body;
+    const { addressName, neighbourHood, addressDetail, district, city, user } = req.body;
     try {
         const savedAddress = await Address.create({
            city, 
