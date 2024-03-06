@@ -46,7 +46,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const { addressName, neighbourHood, addressDetail, district, city, user } = req.body;
+    const {city,district,neighbourHood, addressDetail, addressName,  user } = req.body;
     try {
         const savedAddress = await Address.create({
            city, 
@@ -58,7 +58,7 @@ router.post("/", async (req, res) => {
             
           });   
             
-            res.status(201).json(savedAddress);
+        res.status(201).json(savedAddress);
     } catch (error) {
         res.status(500).json({ error: "Internal Server Error" });
     }
