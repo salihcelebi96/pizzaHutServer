@@ -58,10 +58,11 @@ router.post("/", async (req, res) => {
            user
             
           });   
-          const savedNewAddress = await newAddress.save();
-            
+          
+        const savedNewAddress = await newAddress.save();    
         res.status(201).json(savedNewAddress);
     } catch (error) {
+        console.error('Post address işlemi sırasında bir hata oluştu:', error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 });        
