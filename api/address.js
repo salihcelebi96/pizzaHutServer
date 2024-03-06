@@ -55,7 +55,7 @@ router.post("/", async (req, res) => {
            neighbourHood,
            addressDetail,
            addressName,
-           user
+           user,
             
           });   
           
