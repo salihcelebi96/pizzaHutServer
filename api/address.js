@@ -60,7 +60,7 @@ router.post("/", async (req, res) => {
           });   
           const savedNewAddress = await newAddress.save();
             
-        res.status(201).json(savedAddress);
+        res.status(201).json(savedNewAddress);
     } catch (error) {
         res.status(500).json({ error: "Internal Server Error" });
     }
