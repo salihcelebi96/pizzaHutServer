@@ -46,9 +46,10 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const {city,district,neighbourHood, addressDetail, addressName,  user } = req.body;
-    try {
-        const savedAddress = await Address.create({
+   const {city,district,neighbourHood, addressDetail, addressName,  user } = req.body;
+    try { 
+        
+        const newAddress = new Address({
            city, 
            district,
            neighbourHood,
@@ -57,6 +58,7 @@ router.post("/", async (req, res) => {
            user
             
           });   
+          const savedNewAddress = await newAddress.save();
             
         res.status(201).json(savedAddress);
     } catch (error) {

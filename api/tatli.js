@@ -34,9 +34,9 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  
+  const { tür, fiyat, url } = req.body;
   try {
-    const { tür, fiyat, url } = req.body;
+    
     const newTatlı = new Tatlilar({
       tür,
       fiyat,
