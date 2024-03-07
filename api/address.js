@@ -51,17 +51,19 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-   const { city, district, neighbourHood,street, addressDetail, addressName,userEmail } = req.body;
+   const { city, district, neighbourHood, street, addressDetail, addressName,userEmail } = req.body;
     try { 
         
         const newAddress = new Address({
            city, 
            district,
-           neighbourHood,
-           addressDetail,
+           neighbourHood, 
+           street, 
            addressName,
+           addressDetail,
            userEmail,
-           street,
+           
+          
             
           });   
           
