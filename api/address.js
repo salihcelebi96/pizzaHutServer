@@ -12,7 +12,7 @@ const addressSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    neighbourHood: {
+    neighborhood: {
         type: String,
         required: true,
     },
@@ -51,13 +51,13 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-   const { city, district, neighbourHood, street, addressDetail, addressName,userEmail } = req.body;
+   const { city, district, neighborhood, street, addressDetail, addressName,userEmail } = req.body;
     try { 
         
         const newAddress = new Address({
            city, 
            district,
-           neighbourHood, 
+           neighborhood, 
            street, 
            addressName,
            addressDetail,
