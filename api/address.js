@@ -28,6 +28,10 @@ const addressSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    userEmail: {
+        type: String,
+        required: true,
+    },
     
 });
 
@@ -52,7 +56,7 @@ router.post("/", async (req, res) => {
            neighbourHood,
            addressDetail,
            addressName,
-          
+          userEmail,
             
           });   
           
