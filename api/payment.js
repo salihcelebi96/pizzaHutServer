@@ -13,10 +13,7 @@ dotenv.config();
 mongoose.connect(process.env.MONGODB_URI);
 
 const paymentSchema = new mongoose.Schema({
-  totalPrice: {
-    type: String,
-    required: true,
-  },
+
   cardNumber: {
     type: String,
     required: true,
@@ -25,7 +22,11 @@ const paymentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  lastDate: {
+  month: {
+    type: String,
+    required: true,
+  },
+  years:{
     type: String,
     required: true,
   },
@@ -48,8 +49,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { name, lastDate, cvc, cardNumber, totalPrice } = req.body;
-    const newPayment = new Payments({ name, lastDate, cvc, cardNumber, totalPrice });
+    const { name, month, years , cvc, cardNumber, totalPrice } = req.body;
+    const newPayment = new Payments({cardNumber, name, month, years, cvc });
     await newPayment.save();
     res.status(201).json({ message: 'Payment saved successfully!' });
   } catch (error) {
