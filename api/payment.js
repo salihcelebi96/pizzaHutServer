@@ -1,10 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
-
-
 const dotenv = require('dotenv');
-const router = express.Router(); 
+const router = express.Router();
 
 
 
@@ -34,6 +31,10 @@ const paymentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cardName:{
+    type: String,
+    required: true,
+  }
 });
 
 const Payments = mongoose.model('payment', paymentSchema);
@@ -49,8 +50,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { name, month, years , cvc, cardNumber, totalPrice } = req.body;
-    const newPayment = new Payments({cardNumber, name, month, years, cvc });
+    const {cardNumber, name, month, years , cvc, cardName  } = req.body;
+    const newPayment = new Payments({cardNumber, name, month, years, cvc, cardName });
     await newPayment.save();
     res.status(201).json({ message: 'Payment saved successfully!' });
   } catch (error) {
