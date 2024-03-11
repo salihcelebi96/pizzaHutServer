@@ -20,6 +20,7 @@ const wings = require('./api/wings');
 const payment = require('./api/payment');
 const authRoutes = require('./api/loginJwt');
 const address = require('./api/address');
+const card = require('./api/cards');
 
 
 
@@ -34,6 +35,7 @@ app.use('/api/loginjwt', authRoutes);
 app.use('/api/wings', wings);
 app.use("/api/payment", payment);
 app.use("/api/address", address);
+app.use("/api/card", card);
 
 
 // Start the server

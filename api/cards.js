@@ -2,15 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const router = express.Router();
+
 dotenv.config();
 mongoose.connect(process.env.MONGODB_URI);
 
-const paymentSchema = new mongoose.Schema({
-  totalPrice: {
-    type: String,
-    required: true,
-  },
-  cardNumber: {
+const cardSchema = new mongoose.Schema({
+   cardNumber: {
     type: String,
     required: true,
   },
@@ -22,7 +19,7 @@ const paymentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  years: {
+  years:{
     type: String,
     required: true,
   },
@@ -30,11 +27,17 @@ const paymentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cardName:{
+    type: String,
+    required: true,
+  }
 });
-const Payments = mongoose.model('payment', paymentSchema);
+
+const Cards = mongoose.model('card', cardSchema);
+
 router.get('/', async (req, res) => {
   try {
-    const data = await Payments.find();
+    const data = await Cards.find();
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
@@ -43,13 +46,14 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { name, lastDate, cvc, cardNumber, totalPrice } = req.body;
-    const newPayment = new Payments({ name, month ,  years, cvc, cardNumber, totalPrice });
-    await newPayment.save();
-    res.status(201).json({ message: 'Payment saved successfully!' });
+    const {cardNumber, name, month, years , cvc, cardName  } = req.body;
+    const newCard = new Cards({cardNumber, name, month, years, cvc, cardName });
+    await newCard.save();
+    res.status(201).json({ message: 'Card saved successfully!' });
   } catch (error) {
-    console.error('Error during payment:', error);
+    console.error('Error during card save:', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+
 module.exports = router;
