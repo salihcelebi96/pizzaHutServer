@@ -50,8 +50,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const {cardNumber, name, month, years , cvc, cardName  } = req.body;
-    const newCard = new Cards({cardNumber, name, month, years, cvc, cardName });
+    const {cardNumber, name, month, years , cvc, cardName,activeUserEmail  } = req.body;
+    const newCard = new Cards({cardNumber, name, month, years, cvc, cardName,activeUserEmail });
     await newCard.save();
     res.status(201).json({ message: 'Card saved successfully!' });
   } catch (error) {
