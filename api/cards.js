@@ -30,7 +30,11 @@ const cardSchema = new mongoose.Schema({
   cardName:{
     type: String,
     required: true,
-  }
+  },
+  activeUserEmail:{
+    type: String,
+    required: true,
+  },
 });
 
 const Cards = mongoose.model('card', cardSchema);
