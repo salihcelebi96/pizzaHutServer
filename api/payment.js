@@ -43,7 +43,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { name, month, years, cvc, cardNumber, totalPrice } = req.body;
+    const { name, month,years, cvc, cardNumber, totalPrice } = req.body;
     const newPayment = new Payments({ name, month ,  years, cvc, cardNumber, totalPrice });
     await newPayment.save();
     res.status(201).json({ message: 'Payment saved successfully!' });
